@@ -9,6 +9,7 @@
 
 # Editor additions
 .vscode
+.idea
 
 config/localConfig.yaml
 config/localConfig.yml
