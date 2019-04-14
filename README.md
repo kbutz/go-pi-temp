@@ -1,6 +1,6 @@
 # Go home weather station
 
-I was spending too much on my AWS MySQL RDS instance with my flask raspberry pi  home weather station which saved a temp reading every 15 minutes with a Celery heartbeat. This project serves to re-write that functionality to log constantly, but only save once an hour (since you're billed by the minute on the RDS instance) and an excuse for me to get to know vim a bit better.
+I was spending too much on my AWS MySQL RDS instance with my flask raspberry pi  home weather station which saved a temp reading every 15 minutes with a Celery heartbeat. This project serves to re-write that functionality to log constantly, but only save once a day (since you're billed by the hour on the RDS instance) and an excuse for me to get to know vim a bit better.
 
 ## Package Overviews
 
