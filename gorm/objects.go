@@ -14,8 +14,8 @@ func Migrate() error {
 		  ===========================================
 	*/
 
-	glog.Info("Creating User Table")
-	err := DB.AutoMigrate(&User{}).Error
+	glog.Info("Creating TemperatureReading Table")
+	err := DB.AutoMigrate(&TemperatureReading{}).Error
 	if err != nil {
 		glog.Info(err)
 		return err

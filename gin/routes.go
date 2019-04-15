@@ -1,8 +1,8 @@
 package gin
 
 import (
+	"github.com/kbutz/go-pi-temp/config"
 	"time"
-  "github.com/kbutz/go-pi-temp/config"
 
 	"github.com/gin-gonic/gin"
 	cors "github.com/itsjamie/gin-cors"
@@ -18,9 +18,9 @@ func InitRoutes() *gin.Engine {
 
 	// Apply the middleware to the router (works with groups too)
 	router.Use(cors.Middleware(cors.Config{
-		Origins:         "*", //cfg.Origins,
-		Methods:         "GET, PUT, POST, DELETE",
-		RequestHeaders:  "Origin, Authorization, Content-Type",
+		Origins:        "*", //cfg.Origins,
+		Methods:        "GET, PUT, POST, DELETE",
+		RequestHeaders: "Origin, Authorization, Content-Type",
 		// ExposedHeaders:  "",
 		MaxAge:          50 * time.Second,
 		Credentials:     true,
@@ -34,20 +34,16 @@ func InitRoutes() *gin.Engine {
 
 	v1 := router.Group("/v1")
 	{
-		setUserRoutes(v1)
+		setTemperatureReadingRoutes(v1)
 	}
 
 	return router
 }
 
-
-//setUserRoutes :
-func setUserRoutes(g *gin.RouterGroup) {
-  g.POST("/user")
+func setTemperatureReadingRoutes(g *gin.RouterGroup) {
+	g.GET("/temperature", temperatureReadingHandler)
 }
 
 func setDebugRoutes(g *gin.RouterGroup) {
 	g.GET("/test")
 }
-
-
